@@ -10,7 +10,7 @@ export interface IProduct {
 const Card = ({ title, price, thumbnail }: IProduct) => {
   return (
     <div className=" w-64 min-w-[16rem] md:w-80 lg:w-96 mb-4 max-w-[24rem] bg-white p-2 sm:p-3  rounded-lg snap-start">
-      <div className=" h-32 overflow-hidden ">
+      <div className=" h-32 overflow-hidden rounded-lg">
         <img className="w-full object-cover h-32 sm:h-48" src={thumbnail} />
       </div>
       <div className="flex justify-between items-end flex-wrap space-y-3">
