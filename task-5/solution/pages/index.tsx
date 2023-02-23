@@ -58,7 +58,7 @@ export default function Home() {
 
         <section>
           <h3 className=" font-semibold text-md my-5 mt-8 ">Featured Events</h3>
-          <div className="flex space-x-3 overflow-x-scroll snap-x w-full scroll-mb-4">
+          <div className="flex space-x-3 overflow-x-auto snap-x w-full scroll-mb-4">
             {featuredCards}
           </div>
         </section>
