@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Submi job application</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <form action="" id="job-form">
+      <h3>Job Application Form</h3>
+      <label for="name">Name</label>
+      <input type="text" id="name" required />
+
+      <label for="email">Email</label>
+      <input type="email" id="email" required />
+
+      <label for="age">Age</label>
+      <input type="number" id="age" required />
+
+      <label for="job">Job</label>
+      <select id="job" required>
+        <option value="Frontend Developer">Frontend Developer</option>
+        <option value="Backend Developer">Backend Developer</option>
+        <option value="Fullstack Developer">Fullstack Developer</option>
+      </select>
+
+      <button type="submit">Submit</button>
+    </form>
+    <script>
+      const form = document.querySelector("#job-form");
+
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        //const name = document.querySelector("#name").value;
+        // const email = document.querySelector("#email").value;
+        //const age = document.querySelector("#age").value;
+        //const job = document.querySelector("#job").value;
+
+        const data = {
+          data: {
+            Name: document.querySelector("#name").value,
+            Email: document.querySelector("#email").value,
+            Age: document.querySelector("#age").value,
+            Job: document.querySelector("#job").value,
+            Date: new Date().toLocaleString(),
+          },
+        };
+        fetch("https://sheetdb.io/api/v1/v9tuwawq54lfp", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            console.log(data);
+            alert("Your application has been submitted successfully");
+          })
+          .catch((error) => {
+            console.error("Error:", error);
+          });
+      });
+    </script>
+  </body>
+</html>
